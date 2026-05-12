@@ -23,30 +23,55 @@
 
     <div class="content-container">
       <div class="border-b border-slate-400 my-4 title-container" />
-      <div class="flex justify-between flex-wrap"></div>
-    </div>
+      <div class="flex justify-between items-center nav-links">
+        <nuxt-link
+          v-if="adjacent.prev"
+          :to="`/projects/${adjacent.prev.slug}/`"
+          class="flex items-center gap-1 no-underline text-blueish-200 hover:text-blueish-200/75 text-sm"
+        >
+          <FontAwesomeIcon :icon="['fas', 'angle-left']" />
+          <span class="hidden md:inline">{{ adjacent.prev.title }}</span>
+          <span class="md:hidden">Prev</span>
+        </nuxt-link>
+        <span v-else />
+        <nuxt-link
+          v-if="adjacent.next"
+          :to="`/projects/${adjacent.next.slug}/`"
+          class="flex items-center gap-1 no-underline text-blueish-200 hover:text-blueish-200/75 text-sm ml-auto"
+        >
+          <span class="hidden md:inline">{{ adjacent.next.title }}</span>
+          <span class="md:hidden">Next</span>
+          <FontAwesomeIcon :icon="['fas', 'angle-right']" />
+        </nuxt-link>
+      </div>
 
-    <h1 class="text-4xl font-bold">{{ project.title }}</h1>
-    <div class="flex flex-wrap gap-2 mt-4">
-      <span
-        v-for="tech in project.techUsed"
-        :key="tech"
-        class="py-1 px-2 text-sm text-gray-700 bg-gray-100 rounded"
-      >
-        {{ tech }}
-      </span>
+      <div class="mt-6">
+        <!-- carousel -->
+      </div>
+
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span
+          v-for="tech in project.techUsed"
+          :key="tech"
+          class="py-1 px-2 text-sm text-gray-700 bg-gray-100 rounded"
+        >
+          {{ tech }}
+        </span>
+      </div>
+
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="mt-6 max-w-none prose space-y-4" v-html="project.description" />
     </div>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="mt-6 max-w-none prose" v-html="project.description" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { getProjectBySlug } from '~/data/projects'
+import { getProjectBySlug, getAdjacentProjects } from '~/data/projects'
 
 const route = useRoute()
 const slug = route.params.slug as string
 const project = getProjectBySlug(slug)
+const adjacent = getAdjacentProjects(slug)
 
 if (!project) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found' })
@@ -62,6 +87,10 @@ h1,
 .img-thumb {
   opacity: 0;
   animation: fade-in-bottom ease-out 0.5s forwards;
+}
+.nav-links {
+  opacity: 0;
+  animation: fade-in-right ease-out 0.5s forwards;
 }
 .title-container {
   transform: scaleX(0);
