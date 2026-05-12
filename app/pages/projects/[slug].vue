@@ -6,7 +6,7 @@
       </div>
       <div class="flex flex-1 justify-around">
         <div class="self-center flex-1">
-          <h1 class="text-2xl md:text-4xl lg:text-5xl tracking-wide">
+          <h1 class="text-2xl md:text-4xl lg:text-5xl tracking-wide font-medium">
             {{ project.title }}
           </h1>
           <div class="gallery-link">
@@ -45,11 +45,11 @@
         </nuxt-link>
       </div>
 
-      <div class="mt-6">
-        <!-- carousel -->
+      <div class="mt-8">
+        <ProjectCarousel v-if="project.images.length" :images="project.images" />
       </div>
 
-      <div class="flex flex-wrap gap-2 mt-4">
+      <div class="flex flex-wrap gap-2 mt-10">
         <span
           v-for="tech in project.techUsed"
           :key="tech"
