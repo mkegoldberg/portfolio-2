@@ -11,8 +11,8 @@
           </h1>
           <div class="gallery-link">
             <nuxt-link
-              to="/?goTo=gallery"
-              class="no-underline text-blueish-200 hover:text-blueish-200/75 text-sm"
+              to="/#projects"
+              class="no-underline text-salmon hover:text-salmon/75 text-sm"
             >
               View all projects
             </nuxt-link>
@@ -22,12 +22,12 @@
     </div>
 
     <div class="content-container">
-      <div class="border-b border-slate-400 my-4 title-container" />
+      <div class="border-b border-charcoal/50 my-4 title-container" />
       <div class="flex justify-between items-center nav-links">
         <nuxt-link
           v-if="adjacent.prev"
           :to="`/projects/${adjacent.prev.slug}/`"
-          class="flex items-center gap-1 no-underline text-blueish-200 hover:text-blueish-200/75 text-sm"
+          class="flex items-center gap-1 no-underline text-salmon hover:text-salmon/75 text-sm"
         >
           <FontAwesomeIcon :icon="['fas', 'angle-left']" />
           <span class="hidden md:inline">{{ adjacent.prev.title }}</span>
@@ -37,7 +37,7 @@
         <nuxt-link
           v-if="adjacent.next"
           :to="`/projects/${adjacent.next.slug}/`"
-          class="flex items-center gap-1 no-underline text-blueish-200 hover:text-blueish-200/75 text-sm ml-auto"
+          class="flex items-center gap-1 no-underline text-salmon hover:text-salmon/75 text-sm ml-auto"
         >
           <span class="hidden md:inline">{{ adjacent.next.title }}</span>
           <span class="md:hidden">Next</span>
@@ -53,7 +53,7 @@
         <span
           v-for="tech in project.techUsed"
           :key="tech"
-          class="py-1 px-2 text-sm text-gray-700 bg-gray-100 rounded"
+          class="py-1 px-2 text-sm text-gray-700 bg-blueish-100/25 rounded"
         >
           {{ tech }}
         </span>

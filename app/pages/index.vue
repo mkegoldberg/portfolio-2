@@ -12,7 +12,7 @@
 
     <Bio />
 
-    <Gallery ref="gallery" />
+    <Gallery id="projects" />
   </div>
 </template>
 

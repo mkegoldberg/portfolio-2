@@ -43,6 +43,7 @@
 
 @layer base {
   body {
+    @apply text-charcoal;
     font-family:
       'Source Sans Pro',
       -apple-system,
