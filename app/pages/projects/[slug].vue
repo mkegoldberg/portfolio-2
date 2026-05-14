@@ -76,6 +76,8 @@ const adjacent = getAdjacentProjects(slug)
 if (!project) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found' })
 }
+
+useHead({ title: project.title })
 </script>
 
 <style scoped>
