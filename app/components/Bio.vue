@@ -107,12 +107,11 @@ onUnmounted(() => document.removeEventListener('click', onDocumentClick))
               @mouseleave="hideTooltip"
             >
               <p>
-                I stay current with the latest front-end tools and technologies. I've built projects
-                in Angular, but Vue and Nuxt are where I truly excel. Most recently, I've been using
-                AI, especially Claude Code, as a development partner, almost like managing another
-                developer on the team. My experience spans from marketing pages that drive
-                conversions to extensive software development, building functional tools that help
-                users genuinely enjoy working with the product.
+                I stay current with the latest front-end tools and technologies, with deep expertise
+                in Vue and Nuxt. I also use AI tools like Claude Code as an advanced development
+                partner to accelerate workflows and problem-solving. My experience spans both
+                high-converting marketing sites and large-scale software platforms focused on
+                creating intuitive user experiences.
               </p>
               <div class="bio-tooltip-arrow" />
             </div>

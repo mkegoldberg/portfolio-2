@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto" style="max-width: 600px">
+  <div class="mx-auto max-w-[675px]">
     <div class="flex items-center md:gap-3">
       <button class="carousel-btn" @click="scrollPrev" aria-label="Previous slide">
         <FontAwesomeIcon :icon="['fas', 'angle-left']" />
